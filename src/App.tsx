@@ -34,8 +34,8 @@ function App() {
   const encrypted = JSON.parse(message).ct;
   const displayText = (revealedIndex === 0 || revealedIndex < display.length) ? display.slice(0, revealedIndex) + encrypted.slice(revealedIndex) : display;
   return (
-    <div className="mt-8 grid justify-items-center">
-      <div className={`bg-white rounded shadow-lg p-4 max-w-xl ${displayText === display ? '' : 'break-all'}`}>
+    <div className={`sm:mt-8 grid justify-items-center`}>
+      <div className={`bg-white rounded shadow-lg p-4 max-w-xl`}>
         <form>
           <div>
             <div className="mb-4">
@@ -57,7 +57,7 @@ function App() {
             </div>
           </div>
         </form>
-        <div className="mt-4">
+        <div className={`mt-4 ${displayText === display ? '' : 'break-all' }`}>
          <div dangerouslySetInnerHTML={{__html: displayText}}></div>
         </div>
       </div>
