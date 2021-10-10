@@ -2,9 +2,7 @@ import React from 'react';
 import { useAppSelector } from './app/hooks';
 import sjcl from './features/thanks/sjcl';
 import {
-  revealedLetters,
   encryptedSelector,
-  modalOpen,
 } from './features/thanks/thanksSlice';
 
 function attemptDecrypt(phone: String, car: String, message: String, setDisplay: Function, setRevealedIndex: Function) {
@@ -20,9 +18,9 @@ function attemptDecrypt(phone: String, car: String, message: String, setDisplay:
 
 function incrementallyReveal(setRevealedIndex: Function, index: number, max: number) {
   setTimeout(() => {
-    setRevealedIndex(index + 2);
-    if (index + 2 < max) {
-      incrementallyReveal(setRevealedIndex, index + 2, max)
+    setRevealedIndex(index + 5);
+    if (index + 5 < max) {
+      incrementallyReveal(setRevealedIndex, index + 5, max)
     }
   }, 0.01)
 }
@@ -60,7 +58,7 @@ function App() {
           </div>
         </form>
         <div className="mt-4">
-         {displayText}
+         <div dangerouslySetInnerHTML={{__html: displayText}}></div>
         </div>
       </div>
     </div>

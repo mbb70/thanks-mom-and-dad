@@ -6,6 +6,6 @@ cp -rf build/* . && \
 git add -A && \
 git commit -m 'update' && \
 git push && \
-git checkout main
+git checkout master
 
 
