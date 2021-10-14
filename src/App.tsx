@@ -1,9 +1,6 @@
 import React from 'react';
-import { useAppSelector } from './app/hooks';
 import sjcl from './features/thanks/sjcl';
-import {
-  encryptedSelector,
-} from './features/thanks/thanksSlice';
+import { message } from './features/thanks/message';
 
 function attemptDecrypt(phone: String, car: String, message: String, setDisplay: Function, setRevealedIndex: Function) {
   const inputs = [phone, car].map((s) => s.toLowerCase().replace(/[ \-_()]/g, ''));
@@ -30,7 +27,6 @@ function App() {
   const [car, setCar] = React.useState('');
   const [display, setDisplay] = React.useState('');
   const [revealedIndex, setRevealedIndex] = React.useState(0);
-  const message = useAppSelector(encryptedSelector);
   const encrypted = JSON.parse(message).ct;
   const displayText = (revealedIndex === 0 || revealedIndex < display.length) ? display.slice(0, revealedIndex) + encrypted.slice(revealedIndex) : display;
   return (
