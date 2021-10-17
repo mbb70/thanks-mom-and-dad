@@ -33,7 +33,10 @@ function App() {
   const [display, setDisplay] = React.useState('');
   const [plainPS, setPS] = React.useState('');
   const [revealedIndex, setRevealedIndex] = React.useState(0);
-  const displayText = (revealedIndex === 0 || revealedIndex < display.length) ? display.slice(0, revealedIndex) + encrypted.slice(revealedIndex) : display;
+  const notDone = revealedIndex === 0 || revealedIndex < display.length;
+  const revealedPlain = display.slice(0, revealedIndex);
+  const revealedEncrypted = notDone ? encrypted.slice(revealedIndex) : '';
+  const x = "text-3xl my-6 text-xl mb-6 mb-4 my-4";
   return (
     <div className={`sm:mt-8 grid justify-items-center`}>
       <div className={`bg-white rounded shadow-lg p-4 max-w-xl`}>
@@ -58,10 +61,11 @@ function App() {
             </div>
           </div>
         </form>
-        <div className={`mt-4 ${displayText === display ? '' : 'break-all' }`}>
-         <div dangerouslySetInnerHTML={{__html: displayText}}></div>
+        <div className="mt-4">
+          <span dangerouslySetInnerHTML={{__html: revealedPlain}}></span>
+          <span className="break-all" dangerouslySetInnerHTML={{__html: revealedEncrypted}}></span>
         </div>
-        <div style={{display: displayText === display ? '' : 'none'}}>
+        <div style={{display: revealedPlain === display ? '' : 'none'}}>
           <div dangerouslySetInnerHTML={{__html: plainPS}}></div>
         </div>
       </div>
