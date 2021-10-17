@@ -36,7 +36,7 @@ function App() {
   const notDone = revealedIndex === 0 || revealedIndex < display.length;
   const revealedPlain = display.slice(0, revealedIndex);
   const revealedEncrypted = notDone ? encrypted.slice(revealedIndex) : '';
-  const x = "text-3xl my-6 text-xl mb-6 mb-4 my-4";
+  const x = "text-3xl my-6 text-xl mb-6 mb-4 my-4 font-semibold";
   return (
     <div className={`sm:mt-8 grid justify-items-center`}>
       <div className={`bg-white rounded shadow-lg p-4 max-w-xl`}>
@@ -46,7 +46,7 @@ function App() {
               <label className="text-xl">What was our home phone number?</label>
             </div>
             <div className="mb-4">
-              <input className="border rounded shadow text-xl" value={phone} onChange={(e) => setPhone(e.target.value)}/>
+              <input pattern="[0-9]*" className="border rounded shadow text-xl" value={phone} onChange={(e) => setPhone(e.target.value)}/>
             </div>
             <div className="mb-4">
               <label className="text-xl">What was the make and model of the car the kids drove?</label>
