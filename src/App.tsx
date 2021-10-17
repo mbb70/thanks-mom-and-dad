@@ -36,7 +36,7 @@ function App() {
   const notDone = revealedIndex === 0 || revealedIndex < display.length;
   const revealedPlain = display.slice(0, revealedIndex);
   const revealedEncrypted = notDone ? encrypted.slice(revealedIndex) : '';
-  const x = "text-3xl my-6 text-xl mb-6 mb-4 my-4 font-semibold";
+  const x = "text-3xl my-6 text-xl mb-6 mb-4 my-4";
   return (
     <div className={`sm:mt-8 grid justify-items-center`}>
       <div className={`bg-white rounded shadow-lg p-4 max-w-xl`}>
