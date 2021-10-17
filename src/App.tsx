@@ -17,9 +17,10 @@ function attemptDecrypt(phone: string, car: string, message: string, setDisplay:
 
 function incrementallyReveal(setRevealedIndex: Function, index: number, max: number) {
   setTimeout(() => {
-    setRevealedIndex(index + 5);
-    if (index + 5 < max) {
-      incrementallyReveal(setRevealedIndex, index + 5, max)
+    const newIndex = index + 10;
+    setRevealedIndex(newIndex);
+    if (newIndex < max) {
+      incrementallyReveal(setRevealedIndex, newIndex, max);
     }
   }, 0.01)
 }
